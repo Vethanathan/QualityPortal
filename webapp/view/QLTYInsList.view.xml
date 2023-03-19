@@ -1,0 +1,70 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="Quality_ARRQualityPortal.controller.QLTYInsList" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	height="100%">
+	<App>
+		<Page title="INSPECTION LOT DETAILS" showNavButton="true" navButtonPress="onPrevious" >
+		<!--<Input placeholder="Incident Number" id="incino" class="text" width="12rem"/>-->
+		<!--<Button width="5rem" text="Go" type="Emphasized" press="onNext" class="mybtn"/>-->
+		<VBox fitContainer="true">
+		
+		    <smartTable:SmartTable id="Inspection" entitySet="LineItemsSet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true"  useVariantManagement="true" useTablePersonalisation="true" header="Number of Rows" showRowCount="true"  enableAutoBinding="true"  class="me" app:useSmartToggle="true">
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				
+					<Table  items="{/results}">
+						<columns>
+							<Column width="11em">
+								<Text text="Inspection Number"/>
+							</Column>
+								<Column width="14em">
+								<Text text="Created On"/>
+							</Column>
+							<Column width="12em">
+								<Text text="Document Number"/>
+							</Column>
+								<Column width="10em">
+								<Text text="Vendor Number"/>
+							</Column>
+							<Column width="10em">
+								<Text text="PO Number"/>
+							</Column>
+							<Column width="8em">
+								<Text text="Material Number"/>
+							</Column>
+								<Column width="10em">
+								<Text text="Material"/>
+							</Column>
+								
+							<!--<Column width="8em">-->
+							<!--	<Text text="Checked By"/>-->
+							<!--</Column>-->
+							<!--<Column width="6em">-->
+							<!--	<Text text="Severity"/>-->
+							<!--</Column>-->
+							<!--<Column width="8em">-->
+							<!--	<Text text="Survival Prblty"/>-->
+							<!--</Column>-->
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle">
+								<cells>
+									<Text text="{Insplot}"/>
+									<Text text="{CreatDat}"/>
+									<Text text="{MatDoc}"/>
+									<Text text="{Vendor}"/>
+									<Text text="{PoNumber}"/>
+									<Text text="{Material}"/>
+									<Text text="{TxtMat}"/>
+									<!--<Text text="{Severe}"/>-->
+									<!--<Text text="{Problty}"/>-->
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+			
+			</smartTable:SmartTable>
+		</VBox>
+	</Page>
+	</App>
+</mvc:View>

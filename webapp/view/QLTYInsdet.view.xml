@@ -1,0 +1,75 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="Quality_ARRQualityPortal.controller.QLTYInsdet"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	height="100%">
+	<App>
+		<Page title="INSPECTION DETAILS" showNavButton="true" navButtonPress="onPrevious" >
+		<!--<Input placeholder="Incident Number" id="incino" class="text" width="12rem"/>-->
+		<!--<Button width="5rem" text="Go" type="Emphasized" press="onNext" class="mybtn"/>-->
+		<VBox fitContainer="true">
+		
+		    <smartTable:SmartTable id="details"  entitySet="LineItemsSet" smartFilterId="smartFilterBar" tableType="Table" useExportToExcel="true"  useVariantManagement="true" useTablePersonalisation="true" header="Number of Rows" showRowCount="true"  enableAutoBinding="true"  class="me" app:useSmartToggle="true">
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				
+					<Table items="{/results}">
+						<columns>
+							<Column width="7em">
+								<Text text="Inspection Number"/>
+							</Column>
+							<!--	<Column width="10em">-->
+							<!--	<Text text="Created On"/>-->
+							<!--</Column>-->
+							<Column width="6em">
+								<Text text="Inspection Type"/>
+							</Column>
+								<Column width="8em">
+								<Text text="Inspection Start Date"/>
+							</Column>
+							<Column width="8em">
+								<Text text="Inspection End Date"/>
+							</Column>
+							<Column width="7em">
+								<Text text="Material"/>
+							</Column>
+								<Column width="7em">
+								<Text text="Total Qty"/>
+							</Column>
+							<Column width="4em">
+								<Text text="Unit"/>
+							</Column>
+							<Column width="6em">
+								<Text text="Inspected Qty"/>
+							</Column>
+							<Column width="6em">
+								<Text text="Defective Qty"/>
+							</Column>
+							<Column width="6em">
+								<Text text="Destroyed Qty"/>
+							</Column>
+							
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle">
+								<cells>
+									<Text text="{Insplot}"/>
+									<Text text="{InspType}"/>
+									<Text text="{InspectionStartsOnDate}"/>
+									<Text text="{InspectionEndsOnDate}"/>
+									<Text text="{TxtInspObject}"/>
+									<!--<Text text="{Material}"/>-->
+									<Text text="{InsplotSize}"/>
+									<Text text="{InsplotBaseUom}"/>
+									<Text text="{SampleQtyActuallyInspected}"/>
+									<Text text="{SampleQtyDefective}"/>
+									<Text text="{SampleQtyDestroyed}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+			
+			</smartTable:SmartTable>
+		</VBox>
+	</Page>
+	</App>
+</mvc:View>
